@@ -12,7 +12,7 @@ app.use('/api/swagger', swaggerUi.serve, swaggerUi.setup(swaggerSpec))
 
 
 app.get('/api', function (req, res) { 
-  res.send('<h1 style="color:blue;">Hello World! /api</h1>');
+  res.send('<h1 style="color:red;">Hello World! /api</h1>');
 });
 app.get('/', function (req, res) { 
   res.send('<h1 style="color:blue;">Hello World! / </h1>');
