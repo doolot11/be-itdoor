@@ -8,16 +8,16 @@ const AllRoute = require("./src/route/allRoute")
 const swaggerUi = require("swagger-ui-express");
 const swaggerSpec = require("./src/swagger");
 
-app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerSpec))
+app.use('/api/swagger', swaggerUi.serve, swaggerUi.setup(swaggerSpec))
 
 
-app.get('/', function (req, res) { 
+app.get('/api', function (req, res) { 
   res.send('<h1 style="color:blue;">Hello World!</h1>');
 });
 
 app.use(express.json())
 // app.use("/api/", AllRoute) 
-app.use("/", AllRoute) 
+app.use("/api", AllRoute) 
 
 // const url = "mongodb://localhost:27017/flowersMarket"
 
