@@ -16,7 +16,8 @@ app.get('/', function (req, res) {
 });
 
 app.use(express.json())
-app.use("/api/", AllRoute) 
+// app.use("/api/", AllRoute) 
+app.use("/", AllRoute) 
 
 // const url = "mongodb://localhost:27017/flowersMarket"
 
