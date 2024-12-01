@@ -8,7 +8,7 @@ const AllRoute = require("./src/route/allRoute")
 const swaggerUi = require("swagger-ui-express");
 const swaggerSpec = require("./src/swagger");
 
-app.use('/api/swagger', swaggerUi.serve, swaggerUi.setup(swaggerSpec))
+app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerSpec))
 
 
 app.get('/api', function (req, res) { 
