@@ -31,7 +31,7 @@ router.delete("/office/get-all/:page?", content.getOfficePhotos)
 module.exports = router
 /**
  * @swagger
- * /sign-in:
+ * /auth/sign-in:
  *   post:
  *     tags: [Auth]
  *     responses:
