@@ -20,13 +20,13 @@ router.post("/mentor/add", upload.single("image"), content.addMentor)
 router.put("/mentor/edit", upload.single("image"), content.editMentor)
 router.delete("/mentor/delete/:_id", content.deleteMentor)
 router.get("/mentor/get-one/:_id", content.getMentor)
-router.delete("/mentor/get-all/:page?", content.getMentors)
+router.get("/mentor/get-all/:page?", content.getMentors)
 // ---------------------------------------
 router.post("/office/add", upload.single("image"), content.addOfficePhoto)
 router.put("/office/edit", upload.single("image"), content.editOfficePhoto)
 router.delete("/office/delete/:_id", content.deleteOfficePhoto)
-router.delete("/office/get-one/:_id", content.getOfficePhoto)
-router.delete("/office/get-all/:page?", content.getOfficePhotos)
+router.get("/office/get-one/:_id", content.getOfficePhoto)
+router.get("/office/get-all/:page?", content.getOfficePhotos)
 
 module.exports = router
 /**
