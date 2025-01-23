@@ -212,7 +212,7 @@ module.exports = router
  *         content:
  *           application/json:
  *             example:
- *              {name: "", jobTitle: "", workExperience: "", image: {}}
+ *              { image: {}}
  *       400:
  *         description: Bad Request
  *         content:
@@ -229,7 +229,7 @@ module.exports = router
  *         content:
  *           application/json:
  *             example:
- *              {name: "", jobTitle: "", workExperience: "", _id: "",image: {}}
+ *              {image: {}}
  *       400:
  *         description: Bad Request
  *         content:
