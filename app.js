@@ -3,10 +3,10 @@ require('dotenv').config()
 const cors = require('cors') 
 var app = express();
 const corsOptions = {
-  origin: 'http://your-frontend-domain.com', // Replace with the actual domain of your frontend
+  origin: 'http://157.173.121.178', // Replace with the actual domain of your frontend
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed methods
   allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
-  credentials: true, // If you’re using cookies or other credentials
+  // credentials: true, // If you’re using cookies or other credentials
 };
 
 app.use(cors(corsOptions));
