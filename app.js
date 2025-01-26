@@ -1,14 +1,14 @@
 var express = require('express');
 require('dotenv').config()
-// const cors = require('cors')
+const cors = require('cors') 
 var app = express();
+app.use(cors())
 const mongoose = require("mongoose")
 const AllRoute = require("./src/route/allRoute")
 
 //swagger
 const swaggerUi = require("swagger-ui-express");
 const swaggerSpec = require("./src/swagger");
-// app.use(cors())
 app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerSpec))
 
 
