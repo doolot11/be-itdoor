@@ -1,22 +1,22 @@
+const cors = require('cors') 
 var express = require('express');
 require('dotenv').config()
-const cors = require('cors') 
 var app = express();
 
-const corsOptions = {
-  origin: '*', // Replace with the actual domain of your frontend
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed methods
-  allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
-  credentials: true, // If you’re using cookies or other credentials
-};
+// const corsOptions = {
+//   origin: '*', // Replace with the actual domain of your frontend
+//   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed methods
+//   allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
+//   credentials: true, // If you’re using cookies or other credentials
+// };
 
-app.use(cors(corsOptions));
 const mongoose = require("mongoose")
 const AllRoute = require("./src/route/allRoute")
 
 //swagger
 const swaggerUi = require("swagger-ui-express");
 const swaggerSpec = require("./src/swagger");
+app.use(cors());
 app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerSpec))
 
 
