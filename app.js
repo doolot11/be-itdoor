@@ -2,7 +2,14 @@ var express = require('express');
 require('dotenv').config()
 const cors = require('cors') 
 var app = express();
-app.use(cors())
+const corsOptions = {
+  origin: 'http://your-frontend-domain.com', // Replace with the actual domain of your frontend
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed methods
+  allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
+  credentials: true, // If you’re using cookies or other credentials
+};
+
+app.use(cors(corsOptions));
 const mongoose = require("mongoose")
 const AllRoute = require("./src/route/allRoute")
 
