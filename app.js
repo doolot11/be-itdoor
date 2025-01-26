@@ -1,7 +1,7 @@
 const cors = require('cors') 
-var express = require('express');
+const express = require('express');
 require('dotenv').config()
-var app = express();
+const app = express();
 
 // const corsOptions = {
 //   origin: '*', // Replace with the actual domain of your frontend
