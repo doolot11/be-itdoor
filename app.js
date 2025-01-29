@@ -4,7 +4,7 @@ require('dotenv').config()
 const app = express();
 
 const corsOptions = {
-  origin: ['http://localhost:3000', 'http://157.173.121.178'], // Add all allowed origins
+  origin: "*", // Add all allowed origins
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
   allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
   credentials: true, // Enable this if you're using cookies
