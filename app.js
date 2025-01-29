@@ -2,6 +2,7 @@ const cors = require('cors')
 const express = require('express');
 require('dotenv').config()
 const app = express();
+const path = require('path');
 
 const corsOptions = {
   origin: "*", // Add all allowed origins
@@ -30,8 +31,10 @@ app.get('/', function (req, res) {
 });
 
 app.use(express.json())
-// app.use("/api/", AllRoute) 
 app.use("/", AllRoute) 
+app.use(express.static(__dirname))
+app.use('/upload', express.static(path.join(__dirname, '/upload')));
+// app.use("/api/", AllRoute) 
 
 // const url = "mongodb://localhost:27017/flowersMarket"
 
