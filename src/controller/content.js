@@ -1,5 +1,5 @@
 const { mentortModel, officePhotosModel } = require("../model")
-
+const IMAGE_URL = "http://157.173.121.178/api/src/uploads/"
 
 class OurMentors {
     async addMentor(req, res) {
@@ -45,8 +45,8 @@ class OurMentors {
     async getMentor(req, res) {
         try {
             const { _id } = req.params
-            const response = await mentortModel.findOne(_id)
-            await res.json(response)
+            const response = await mentortModel.findById(_id)
+            await res.json({ ...response._doc, image: IMAGE_URL + response.image })
         } catch (error) {
             return res.status(400).json({ msg: "error" })
         }
@@ -60,7 +60,13 @@ class OurMentors {
             const mentors = await mentortModel.find().skip(skip).limit(limit).sort({ createdAt: -1 })
             const count = await mentortModel.countDocuments()
 
-            await res.json({ result: mentors, page: page, limit: limit, count })
+            const reNameUrl = []
+            for (let i = 0; i < mentors.length; i++) {
+                const data = mentors[i]
+                reNameUrl.push({ ...data._doc, image: IMAGE_URL + mentors[i]?.image })
+
+            }
+            await res.json({ result: reNameUrl, page: page, limit: limit, count })
 
         } catch (error) {
             return res.status(400).json({ msg: "error" })
@@ -104,8 +110,10 @@ class OurMentors {
     async getOfficePhoto(req, res) {
         try {
             const { _id } = req.params
-            const response = await officePhotosModel.findOne(_id)
-            await res.json(response)
+
+            const response = await officePhotosModel.findById(_id)
+
+            await res.json({ ...response._doc, image: IMAGE_URL + response.image })
         } catch (error) {
             return res.status(400).json({ msg: "error" })
         }
@@ -119,7 +127,14 @@ class OurMentors {
             const photo = await officePhotosModel.find().skip(skip).limit(limit).sort({ createdAt: -1 })
             const count = await officePhotosModel.countDocuments()
 
-            await res.json({ result: photo, page: page, limit: limit, count })
+            const reNameUrl = []
+            for (let i = 0; i < photo.length; i++) {
+                const data = photo[i]
+                reNameUrl.push({ ...data._doc, image: IMAGE_URL + photo[i]?.image })
+
+            }
+
+            await res.json({ result: reNameUrl, page: page, limit: limit, count })
 
         } catch (error) {
             return res.status(400).json({ msg: "error" })
