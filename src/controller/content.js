@@ -8,7 +8,7 @@ class OurMentors {
             const { filename } = req.file
 
             const response = await mentortModel.create({ image: filename, name, jobTitle, workExperience })
-            await res.json({ msg: "Успешно создано!", result: response })
+            await res.json({ msg: "Успешно создано!", result: { ...response._doc, image: IMAGE_URL + response.image } })
         } catch (error) {
             return res.status(500).json({ msg: 'Что-то пошло не так, попробуйте снова', error });
         }
@@ -78,7 +78,9 @@ class OurMentors {
         try {
             const { filename } = req.file
             const response = await officePhotosModel.create({ image: filename })
-            await res.json({ msg: "Успешно создано!", result: response })
+            console.log(response);
+
+            await res.json({ msg: "Успешно создано!", result: { ...response._doc, image: IMAGE_URL + response.image } })
         } catch (error) {
 
         }
